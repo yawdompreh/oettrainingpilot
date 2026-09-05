@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OET Self-Study Training Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow"></div>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">OET Smart Prep</p>
+        <h1>Self-Study Training Portal</h1>
+      </div>
+      <div id="userActions" class="user-actions hidden">
+        <span id="welcomeText"></span>
+        <button id="logoutBtn" class="btn btn-ghost">Log Out</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section id="authCard" class="panel auth-panel">
+        <h2>Register or Log In</h2>
+        <p>Start your guided OET preparation journey. You must complete each chapter before unlocking the next one.</p>
+
+        <div class="auth-grid">
+          <form id="registerForm" class="card">
+            <h3>Create Account</h3>
+            <label>Username
+              <input type="text" name="username" required minlength="3" />
+            </label>
+            <label>Password
+              <input type="password" name="password" required minlength="6" />
+            </label>
+            <button class="btn" type="submit">Register</button>
+          </form>
+
+          <form id="loginForm" class="card">
+            <h3>Student Login</h3>
+            <label>Username
+              <input type="text" name="username" required />
+            </label>
+            <label>Password
+              <input type="password" name="password" required />
+            </label>
+            <button class="btn" type="submit">Log In</button>
+          </form>
+
+          <form id="adminLoginForm" class="card">
+            <h3>Admin Login</h3>
+            <label>Username
+              <input type="text" name="username" required />
+            </label>
+            <label>Password
+              <input type="password" name="password" required />
+            </label>
+            <button class="btn" type="submit">Log In as Admin</button>
+          </form>
+        </div>
+        <p id="authMsg" class="message"></p>
+      </section>
+
+      <section id="learningArea" class="hidden">
+        <div class="dashboard panel">
+          <h2>Chapter Progress</h2>
+          <p>Select any unlocked chapter. Locked chapters require completion of the previous chapter.</p>
+          <div id="chapterList" class="chapter-list"></div>
+          <div id="certificatePanel" class="certificate-panel hidden">
+            <h3>Completion Certificate</h3>
+            <p id="certificateStatus">Complete all 7 chapters to unlock your certificate.</p>
+            <button id="downloadCertificateBtn" class="btn" disabled>Download Certificate PDF</button>
+          </div>
+        </div>
+
+        <article id="chapterDetail" class="panel chapter-detail hidden"></article>
+      </section>
+
+      <section id="adminArea" class="hidden">
+        <div class="panel dashboard">
+          <h2>Admin Dashboard</h2>
+          <p>View student progress and upload your own training videos for each chapter.</p>
+          <p class="message" id="adminMsg"></p>
+
+          <h3>Student Progress</h3>
+          <div id="studentTableWrap" class="table-wrap"></div>
+
+          <h3>Upload Chapter Video</h3>
+          <form id="videoUploadForm" class="card upload-card">
+            <label>Chapter
+              <select name="chapterId" id="chapterSelect" required>
+                <option value="1">Chapter 1: OET Test Overview</option>
+                <option value="2">Chapter 2: Get OET Ready</option>
+                <option value="3">Chapter 3: Reading</option>
+                <option value="4">Chapter 4: Listening</option>
+                <option value="5">Chapter 5: Writing</option>
+                <option value="6">Chapter 6: Speaking</option>
+                <option value="7">Chapter 7: Final Readiness</option>
+              </select>
+            </label>
+            <label>Video File
+              <input type="file" name="video" accept="video/*" required />
+            </label>
+            <button class="btn" type="submit">Upload Video</button>
+          </form>
+
+          <h3>Current Custom Videos</h3>
+          <div id="videoMap" class="video-map"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Designed for OET candidates | CEO: Dr Awo Dompreh</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

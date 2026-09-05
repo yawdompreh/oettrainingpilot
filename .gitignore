@@ -1,0 +1,12 @@
+node_modules/
+.venv/
+uploads/
+
+# Runtime-generated data files
+data/users.json
+data/progress.json
+data/videos.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
