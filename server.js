@@ -99,7 +99,15 @@ app.use(
     }
   })
 );
-app.use(express.static(path.join(__dirname, "public")));
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
+app.get("/app.js", (_req, res) => {
+  res.sendFile(path.join(__dirname, "app.js"));
+});
+app.get("/styles.css", (_req, res) => {
+  res.sendFile(path.join(__dirname, "styles.css"));
+});
 app.use("/uploads", express.static(uploadsDir));
 
 app.post("/api/admin/login", (req, res) => {
