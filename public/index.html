@@ -16,63 +16,45 @@
         <p class="eyebrow">OET Smart Prep</p>
         <h1>Self-Study Training Portal</h1>
       </div>
-      <div id="userActions" class="user-actions hidden">
-        <span id="welcomeText"></span>
-        <button id="logoutBtn" class="btn btn-ghost">Log Out</button>
+      <div class="user-actions">
+        <button id="adminToggleBtn" class="btn btn-ghost">Admin</button>
+        <div id="userActions" class="user-actions hidden">
+          <span id="welcomeText"></span>
+          <button id="logoutBtn" class="btn btn-ghost">Log Out</button>
+        </div>
       </div>
     </header>
 
     <main class="layout">
-      <section id="authCard" class="panel auth-panel">
-        <h2>Register or Log In</h2>
-        <p>Start your guided OET preparation journey. You must complete each chapter before unlocking the next one.</p>
-
-        <div class="auth-grid">
-          <form id="registerForm" class="card">
-            <h3>Create Account</h3>
-            <label>Username
-              <input type="text" name="username" required minlength="3" />
-            </label>
-            <label>Password
-              <input type="password" name="password" required minlength="6" />
-            </label>
-            <button class="btn" type="submit">Register</button>
-          </form>
-
-          <form id="loginForm" class="card">
-            <h3>Student Login</h3>
-            <label>Username
-              <input type="text" name="username" required />
-            </label>
-            <label>Password
-              <input type="password" name="password" required />
-            </label>
-            <button class="btn" type="submit">Log In</button>
-          </form>
-
-          <form id="adminLoginForm" class="card">
-            <h3>Admin Login</h3>
-            <label>Username
-              <input type="text" name="username" required />
-            </label>
-            <label>Password
-              <input type="password" name="password" required />
-            </label>
-            <button class="btn" type="submit">Log In as Admin</button>
-          </form>
-        </div>
+      <section id="adminLoginCard" class="panel auth-panel hidden">
+        <h2>Admin Login</h2>
+        <p>Content managers can sign in to upload chapter videos.</p>
+        <form id="adminLoginForm" class="card">
+          <label>Username
+            <input type="text" name="username" required />
+          </label>
+          <label>Password
+            <input type="password" name="password" required />
+          </label>
+          <button class="btn" type="submit">Log In as Admin</button>
+        </form>
         <p id="authMsg" class="message"></p>
       </section>
 
-      <section id="learningArea" class="hidden">
+      <section id="learningArea">
         <div class="dashboard panel">
-          <h2>Chapter Progress</h2>
-          <p>Select any unlocked chapter. Locked chapters require completion of the previous chapter.</p>
+          <h2>Chapter Library</h2>
+          <p>Browse any chapter in any order. Answer the practice questions for instant feedback.</p>
           <div id="chapterList" class="chapter-list"></div>
-          <div id="certificatePanel" class="certificate-panel hidden">
+          <div id="certificatePanel" class="certificate-panel">
             <h3>Completion Certificate</h3>
-            <p id="certificateStatus">Complete all 7 chapters to unlock your certificate.</p>
-            <button id="downloadCertificateBtn" class="btn" disabled>Download Certificate PDF</button>
+            <p id="certificateStatus">Enter your name to download a completion certificate.</p>
+            <form id="certificateForm" class="card">
+              <label>Your Name
+                <input type="text" name="name" required minlength="2" maxlength="80" />
+              </label>
+              <button class="btn" type="submit">Download Certificate PDF</button>
+            </form>
           </div>
         </div>
 
@@ -82,11 +64,8 @@
       <section id="adminArea" class="hidden">
         <div class="panel dashboard">
           <h2>Admin Dashboard</h2>
-          <p>View student progress and upload your own training videos for each chapter.</p>
+          <p>Upload your own training videos for each chapter.</p>
           <p class="message" id="adminMsg"></p>
-
-          <h3>Student Progress</h3>
-          <div id="studentTableWrap" class="table-wrap"></div>
 
           <h3>Upload Chapter Video</h3>
           <form id="videoUploadForm" class="card upload-card">
@@ -112,6 +91,7 @@
         </div>
       </section>
     </main>
+
 
     <footer>
       <p>Designed for OET candidates | CEO: Dr Awo Dompreh</p>

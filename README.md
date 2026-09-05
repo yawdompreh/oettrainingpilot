@@ -1,13 +1,10 @@
 # OET Self-Study Web Training Site
 
 A web-based self-study platform for OET candidates with:
-- Student registration and login
-- Server-side username/password storage (hashed passwords)
-- Chapter-by-chapter progression lock
+- Open access to every chapter, no registration or login required
 - Video presentation section for each chapter
-- Admin dashboard to monitor all student progress
-- Admin upload of custom local chapter videos (streamed from server)
-- Certificate PDF generation after Chapter 7 completion
+- Admin dashboard (login required) to upload custom local chapter videos (streamed from server)
+- Generic certificate PDF generation (enter your name, no completion requirement)
 - Practical quiz questions with auto-check
 - Green feedback for correct answers and red feedback for incorrect answers
 
@@ -36,14 +33,13 @@ You can override these with environment variables:
 
 ## Data Storage
 
-- Users are stored in `data/users.json`
-- Progress is stored in `data/progress.json`
 - Custom chapter videos are mapped in `data/videos.json`
 - Uploaded video files are saved in `uploads/`
 
-Both files are created automatically on first run.
+The mapping file is created automatically on first run.
 
 ## Notes
 
 - The course structure is based on chapter topics extracted from `OET Ready Study Guide.pdf`.
-- Students must complete each chapter quiz correctly before moving to the next chapter.
+- Chapters can be browsed in any order to encourage feedback on course content.
+
